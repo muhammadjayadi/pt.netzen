@@ -30,8 +30,11 @@
         <div class="bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading mt-2  primary-text fs-4 fw-bold text-uppercase "><img style="width: 150px" src="{{ asset('image/netzen1.png') }}" alt=""></div>
             <div class="list-group list-group-flush my-3">
-                <a href="{{ URL::route('home') }}" class="list-group-item list-group-item-action bg-transparent second-text {{  request()->is('home') ? 'active' : '' }}">
-                  <i class="fas fa-th-large me-2"></i></i>Dashboard</a>
+                @if (Auth::user()->role === 'admin')
+                    <a href="{{ URL::route('home') }}" class="list-group-item list-group-item-action bg-transparent second-text {{  request()->is('home') ? 'active' : '' }}">
+                    <i class="fas fa-th-large me-2"></i></i>Dashboard</a>
+                @endif
+                
                 <a href="{{ URL::route('penawaran/index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold {{  request()->is('penawaran/index') ? 'active' : '' }}"><i
                         class="fas fa-paper-plane me-2"></i>Penawaran</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i

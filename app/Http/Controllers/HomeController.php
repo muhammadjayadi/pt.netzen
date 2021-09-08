@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Penawaran;
 class HomeController extends Controller
 {
@@ -21,12 +22,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
+    public function index(){
 
-        $penawaran=Penawaran::with('perusahaan')->get();
-
-        return view('home',['penawarans'=>$penawaran]);
+        $penawaran=Penawaran::all()->count();
+        $user=User::all();
+        return view('home',['penawarans'=>$penawaran],['users'=>$user]);
 
 
 
