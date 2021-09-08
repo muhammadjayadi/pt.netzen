@@ -58,9 +58,10 @@
 
                             </tr>
                             <tr>
-                                <td  colspan="7"> <a class="btn float-left btn-sm mt-2 ml-3" href="/penawaran/cetak_pdf/{{ $penawaran->id }}"class="btn btn-primary"
-                                    target="_blank"><i class='bx bxs-file-pdf ' style='color:#0d0d0d; font-size:20px'  ></i></a>
-                                    <a href="/penawaran/pdf/{{ $penawaran->id }}" class="btn btn-info float-left btn-sm mt-2 ml-3">file</a>
+                                <td  colspan="7">
+                                     {{-- <a class="btn float-left btn-sm mt-2 ml-3" href="/penawaran/cetak_pdf/{{ $penawaran->id }}"class="btn btn-primary"
+                                    target="_blank"><i class='bx bxs-file-pdf ' style='color:#0d0d0d; font-size:20px'  ></i></a> --}}
+                                    <a href="/penawaran/pdf/{{ $penawaran->id }}" class="btn  float-left btn-sm mt-2 ml-3"><i class='bx bxs-file-pdf ' style='color:#0d0d0d; font-size:20px'  ></i></a>
                                     <a href="/penawaran/{{ $penawaran->id }}/edit" class="btn  float-left btn-sm mt-2 ml-3"><i class='bx bx-pencil ' style='color:#0d0d0d; font-size:20px'  ></i></a>
 
 

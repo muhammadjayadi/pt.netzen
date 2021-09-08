@@ -24,10 +24,10 @@ class HomeController extends Controller
     public function index()
     {
 
-$penawaran=Penawaran::with('perusahaan')->get();
-// echo $penawaran;
-return view('home',['penawarans'=>$penawaran]);
-        // return view('home');
+        $penawaran=Penawaran::with('perusahaan')->get();
+
+        return view('home',['penawarans'=>$penawaran]);
+
 
 
 }

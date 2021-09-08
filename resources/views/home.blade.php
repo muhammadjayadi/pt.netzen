@@ -24,6 +24,15 @@
             </div>
             </div>
         </div>
+
+
+
+
+@foreach ($penawarans as $penawaran)
+        <p>{{ $penawaran->perusahaan->user->name }}</p>
+@endforeach
+
+
 </div>
 @endsection
 

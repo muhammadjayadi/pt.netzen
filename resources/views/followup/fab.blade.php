@@ -218,23 +218,11 @@
 
 
 
-        <br><button type="download" class="btn btn-primary">Download</button>
+        {{-- <br><button type="download" class="btn btn-primary">Download</button> --}}
       </form>
 
 </div>
 
-<table border="1">
-    <tr>
-        <td><input type="text" > </td>
-        <td>Nim</td>
-        <td>Alamat</td>
-    </tr>
-    <tr>
-        <td>Mahsus</td>
-        <td>3456789</td>
-        <td>mataram</td>
-    </tr>
-</table>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

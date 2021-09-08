@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- CSRF Token -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
@@ -19,7 +21,7 @@
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <!-- ===== FONT ===== -->
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>form aktivasi berlangganan</title>
 </head>
 
 <body>
@@ -48,6 +50,7 @@
                 </form>
             </div>
         </div>
+
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->

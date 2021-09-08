@@ -42,6 +42,7 @@ class PenawaranController extends Controller
         // return view('penawaran.penawaran_pdf',['penawarans'=>$penawaran]);
         // $penawaran=Penawaran::with('perusahaan')->get();
         return view('penawaran.penawaran_pdf',compact('penawaran'));
+        // return
         // $pdf=PDF::loadView('penawaran.penawaran_pdf',compact('penawaran'));
         // return $pdf->download('penawaran_pdf.pdf');
 
@@ -51,7 +52,7 @@ class PenawaranController extends Controller
     {
 
         // $penawaran=Penawaran::with('perusahaan')->get();
-        $pdf= PDF::loadview('penawaran.penawaran_pdf', compact('penawaran'))->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf= PDF::loadview('penawaran.penawaran_pdf', compact('penawaran'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('A4','potrait');
         return $pdf->download('data_penawaran-pdf.pdf');
     }
 

@@ -21,7 +21,7 @@
     {{-- <hr> --}}
     <div class="p" style="background: #C7F2FF;">
 
-        <p class="text-center">Penawaran Anda sudah terkirim dengan ID : <span style="font-weight: 600;">{{ $penawaran_id }}</span></p>
+        {{-- <p class="text-center">Penawaran Anda sudah terkirim  <span style="font-weight: 600;"></span></p> --}}
     </div><br>
 
     {{-- steper --}}

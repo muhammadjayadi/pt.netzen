@@ -93,14 +93,14 @@
                 <p>
                     Acoount Manager  <br>
                     Phone   : +62 8533 789 5559 / +62 877 6006 9009 <br>
-                    E-mail  : jonata.purba@netzen.net.id <br>
+                    E-mail  : {{ $penawaran->perusahaan->user->email }} <br>
                     Website : www.netzen.net.id</p>
                 </div>
                 <div class="col-5"></div>
                 <div class="col-3" style="text-align: center">
                 <p>Mataram, {{ $penawaran->created_at->format('M Y') }}</p>
                 <img style="width:80px; height: 40px; margin-top: 0px" src="{{ asset('image/ttd.jpeg') }}" alt="">
-                <p style="text-align: center">Jonatan Purba <br>
+                <p style="text-align: center">{{ $penawaran->perusahaan->user->name }} <br>
                 <span style="font-weight: 500"> Account Manager</span></p>
                 </div>
             </div>

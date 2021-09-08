@@ -20,9 +20,6 @@ Route::get('followup/detail', function () {
     return view('followup/detail');
 });
 
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home')->name('home');
 
 Auth::routes();
 
