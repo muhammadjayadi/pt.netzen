@@ -29,6 +29,5 @@ class HomeController extends Controller
         return view('home',['penawarans'=>$penawaran],['users'=>$user]);
 
 
-
 }
 }

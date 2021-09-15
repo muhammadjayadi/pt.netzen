@@ -161,7 +161,7 @@
                 <input class="form-control form-control-sm " id="penawran_id" name="penawaran_id" type="hidden" value="{{ $penawaran_id }}">
                 {{-- <input class="form-control form-control-sm " name="kontrak" type="text" value="{{ $file->penawaran->bw   }}"> --}}
                 {{-- @endforeach --}}
-                <a href="{{ route('upload') }}" type="submit" name="submit" style="background: white;  margin-left: 5px"  class="btn border-dark mt-3 "> Buat FAB</a>
+                <a href="{{ route('fab.create',$penawaran_id) }}" type="submit" name="submit" style="background: white;  margin-left: 5px"  class="btn border-dark mt-3 "> Buat FAB</a>
 
                 <a  type="button"  href="{{ route('identitas.create',$penawaran_id) }}" style="background: #C7F2FF; margin-left: 5px" class="btn  mt-3 "> Upload Identitas</a>
                 <button  type="submit" name="submit" style="background: #C7F2FF;"  class="btn  mt-3 "> Upload FAB</button>

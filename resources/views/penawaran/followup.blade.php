@@ -22,8 +22,9 @@
 
             <tr>
                 {{-- <th scope="row">{{ $loop->iteration }}</th> --}}
-                <td><span style="font-weight: 700">{{ $perusahaan->nama_perusahaan}}</span><br>
-                    <span style="font-weight: 300">   {{ $perusahaan->jenis_perusahaan }}</span>
+                <td><span style="font-weight: 700">{{ $perusahaan->nama_perusahaan}}  </span><br>
+                    <span style="font-weight: 300">   {{ $perusahaan->jenis_perusahaan }}  ({{ $perusahaan->kontak}})  </span><br>
+
 
                 </td>
 

@@ -15,10 +15,10 @@ class CreateIdentitasTable extends Migration
     {
         Schema::create('identitas', function (Blueprint $table) {
             $table->id();
-            $table->String('ktp_direktur');
-            $table->String('ktp_finance');
-            $table->String('npwp');
-            $table->String('akta');
+            $table->String('ktp_direktur')->nullable();
+            $table->String('ktp_finance')->nullable();
+            $table->String('npwp')->nullable();
+            $table->String('akta')->nullable();
             $table->foreignId('penawaran_id')->foreign('penawaran_id')->references('id')->on('penawarans')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

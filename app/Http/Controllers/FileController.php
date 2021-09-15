@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Document;
+use App\Identitas;
 use PhpParser\Node\Stmt\Echo_;
 
 use function GuzzleHttp\Promise\all;
@@ -110,8 +111,15 @@ class FileController extends Controller
         ->where('files.penawaran_id', '=', $penawaran->id)
         ->get();
 
+        $identitas = DB::table('identitas')
+        ->select('identitas.id','identitas.ktp_direktur','identitas.ktp_finance','identitas.npwp','identitas.akta')
+        ->join('penawarans', 'identitas.penawaran_id', '=', 'penawarans.id')
+        ->where('identitas.penawaran_id', '=', $penawaran->id)
+        ->get();
+
         // dd($data);
-        return view('penawaran.file', ['files'=>$data]);
+        return view('penawaran.file', ['files'=>$data],['identitas'=>$identitas]);
+        // return view('penawaran.file', compact($data,$identitas));
     }
 
     public function getFile(penawaran  $penawaran){
@@ -152,6 +160,19 @@ class FileController extends Controller
         $file = File::find($id);
         $download = public_path().'/file/' . $file->file;
         return response()->download($download);
+
+
+    }
+    public function downloadIdentitas($id)
+    {
+
+        $file = Identitas::find($id);
+        $direktur = public_path().'/identitas/' . $file->ktp_direktur;
+        $fianance = public_path().'/identitas/' . $file->ktp_direktur;
+        $npwp= public_path().'/identitas/' . $file->npwp;
+        $akta = public_path().'/identitas/' . $file->akta;
+        return response()->download($direktur,$fianance,$npwp,$akta);
+
 
     }
 

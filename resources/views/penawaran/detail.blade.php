@@ -9,8 +9,8 @@
 <div class="container">
     <div class="col-6">
 
-        <a class="btn " style="background: #C7F2FF;
-        " type="button" href="">Penawaran Baru</a>
+        {{-- <a class="btn " style="background: #C7F2FF;
+        " type="button" href="{{ route('tambahPenawaran') }}">Penawaran Baru</a> --}}
       </div>
       <br>
 

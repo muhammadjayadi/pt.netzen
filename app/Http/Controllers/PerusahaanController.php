@@ -21,7 +21,7 @@ class PerusahaanController extends Controller
 
 
 $data = DB::table('perusahaans')
-->select('perusahaans.id','perusahaans.nama_perusahaan','perusahaans.jenis_perusahaan','perusahaans.user_id')
+->select('perusahaans.id','perusahaans.nama_perusahaan','perusahaans.jenis_perusahaan','perusahaans.kontak','perusahaans.user_id')
 ->join('users', 'perusahaans.user_id', '=', 'users.id')
 ->where('perusahaans.user_id', '=', $user->id)
 ->get();

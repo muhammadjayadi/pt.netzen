@@ -34,7 +34,11 @@
                     <a href="{{ URL::route('home') }}" class="list-group-item list-group-item-action bg-transparent second-text {{  request()->is('home') ? 'active' : '' }}">
                     <i class="fas fa-th-large me-2"></i></i>Dashboard</a>
                 @endif
-                
+
+                {{-- <a href="{{ URL::route('home') }}" class="list-group-item list-group-item-action bg-transparent second-text {{  request()->is('home') ? 'active' : '' }}">
+                    <i class="fas fa-th-large me-2"></i></i>Dashboard</a> --}}
+
+
                 <a href="{{ URL::route('penawaran/index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold {{  request()->is('penawaran/index') ? 'active' : '' }}"><i
                         class="fas fa-paper-plane me-2"></i>Penawaran</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
@@ -82,6 +86,7 @@
                                 </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
+                                {{-- <li> <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a></li> --}}
                                 {{-- <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li><a class="dropdown-item" href="#">Logout</a></li> --}}
                             </ul>

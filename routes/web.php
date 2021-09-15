@@ -40,6 +40,8 @@ Route::patch('/penawaran/{penawaran}', 'PenawaranController@update')->middleware
 Route::get('penawaran/pdf/{penawaran}','PenawaranController@pdf')->name('penawaran/cetak_pdf')->middleware('auth');
 Route::get('penawaran/cetak_pdf/{penawaran}','PenawaranController@cetak_pdf')->name('penawaran/cetak_pdf')->middleware('auth');
 Route::get('penawaran/{user}/followup','PerusahaanController@index')->name('penawaran/flowup')->middleware('auth');
+Route::get('penawaran/tambahPenawaran','PenawaranController@createPenawaran')->name('tambahPenawaran')->middleware('auth');
+Route::post('penawaran/tambah','PenawaranController@tambahPenawaran')->name('penawaran/tambah')->middleware('auth');
 // Route::get('penawaran/followup', function () {
 //     return view('penawaran/followup');
 // })->name('flup');
@@ -59,10 +61,12 @@ Route::get('followup/fab', function () {
     return view('followup/fab');
 })->name('upload');
 
-Route::get('fab', function () {
-    $pdf= PDF::loadview('followup/fab')->setOptions(['defaultFont' => 'sans-serif']);
-    return $pdf->download('FAB-pdf.pdf');
-})->name('download');
+Route::get('fab/{penawaran}/create','PenawaranController@fab')->name('fab.create');
+
+// Route::get('fab', function () {
+//     $pdf= PDF::loadview('followup/fab')->setOptions(['defaultFont' => 'sans-serif']);
+//     return $pdf->download('FAB-pdf.pdf');
+// })->name('download');
 
 
 Route::get('file/{penawaran}/create','FileController@getFile')->name('file.create')->middleware('auth');
@@ -70,6 +74,7 @@ Route::get('file/{penawaran}/create','FileController@getFile')->name('file.creat
 Route::POST('file/create','FileController@store')->name('file')->middleware('auth');
 Route::get('file/{penawaran}','FileController@show')->name('data');
 Route::get('file/download/{id}', 'FileController@download')->name('file.download');
+Route::get('file/identitas/{id}', 'FileController@downloadIdentitas')->name('identitas.download');
 // Route::get('identitas/{penawaran}','FileController@datadiri')->name('data');
 
 

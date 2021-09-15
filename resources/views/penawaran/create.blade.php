@@ -127,16 +127,33 @@
                         </div>
 
 
+                        {{-- <div class="form-group  center  col-1">
+                            <label for="bw">BW</label>
+                            <input type="text" class="form-control @error('bw') is-invalid
+                        @enderror" id="bw"  name="bw" value="{{ old('bw') }}" >
+                            @error('bw')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div> --}}
 
-                        <div class="form-group  center col-1">
+                        {{-- <div class="form-group  center col-1">
                             <label for="bw">BW</label>
                             <select name="bw" id="bw" class="form-control"  >
                             <option value=""></option>
-                                <option value="10">10</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                                <option value="1000">1000</option>
+                                <option value="10">10 Mbps</option>
+                                <option value="20">20 Mbps</option>
+                                <option value="30">30 Mbps</option>
+                                <option value="1000">1 Gbps</option>
                               </select>
+                            </div> --}}
+
+                            <div class="form-group center  col-1">
+                                <label for="bw">BW</label>
+                                <input type="text" class="form-control @error('bw') is-invalid
+                            @enderror" id="bw"  name="bw" value="{{ old('bw') }}" >
+                                @error('bw')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
 
 

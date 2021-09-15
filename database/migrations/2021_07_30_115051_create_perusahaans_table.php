@@ -16,7 +16,7 @@ class CreatePerusahaansTable extends Migration
         Schema::create('perusahaans', function (Blueprint $table) {
             $table->id();
             $table->String('nama_perusahaan');
-            $table->String('jenis_perusahaan');
+            $table->String('jenis_perusahaan')->nullable();
             $table->String('kontak');
             $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

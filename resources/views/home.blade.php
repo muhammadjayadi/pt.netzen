@@ -34,10 +34,14 @@
                     <div class="row my-5">
                         <div class="col-6">
 
+
                             <a class="btn " style="background: #C7F2FF" type="button" href="{{route('register')}}">
                                 Tambah User
                                 <i class="fas fa-user-plus"></i>
                             </a>
+
+                         
+
                         </div>
                             <br><br>
 
@@ -48,7 +52,7 @@
                                 @endif
                             {{-- <hr> --}}
 
-                            @foreach ($users as $user)
+
 
                                 <table class="table table-bordered mt-3">
                                     <thead class="thead bg-light text-center">
@@ -60,6 +64,7 @@
 
                                         </tr>
                                     </thead>
+                                    @foreach ($users as $user)
                                     <tbody>
                                             <tr>
                                                 <td>{{ $user->name }}</td>
@@ -67,8 +72,9 @@
                                                 <td>aksi</td>
                                             </tr>
                                     </tbody>
+                                    @endforeach
                                     </table>
-                            @endforeach
+
                             </div>
                         </div>
                     </div>

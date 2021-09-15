@@ -17,8 +17,8 @@ class CreatePenawaransTable extends Migration
             $table->bigIncrements('id');
             $table->String('jenis_koneksi');
             $table->String('lokasi');
-            $table->String('site_a');
-            $table->String('site_b');
+            $table->String('site_a')->nullable();
+            $table->String('site_b')->nullable();
             $table->integer('bw');
             $table->integer('kontrak');
             $table->integer('monthly_bw');

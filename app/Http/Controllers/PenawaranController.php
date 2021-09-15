@@ -6,6 +6,7 @@ use App\Penawaran;
 use App\perusahaan;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Auth\Events\Validated;
 use PDF;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User;
@@ -37,11 +38,12 @@ class PenawaranController extends Controller
         return view('penawaran.index', ['penawarans'=>$categories]);
     }
 
-    public function pdf(Penawaran $penawaran)
+    public function pdf(Penawaran $penawaran, perusahaan $perusahaan)
     {
         // return view('penawaran.penawaran_pdf',['penawarans'=>$penawaran]);
         // $penawaran=Penawaran::with('perusahaan')->get();
-        return view('penawaran.penawaran_pdf',compact('penawaran'));
+        return view('penawaran.penawaran_pdf',compact('penawaran','perusahaan'));
+        // return view('penawaran.penawaran_pdf',['penawaran']);
         // return
         // $pdf=PDF::loadView('penawaran.penawaran_pdf',compact('penawaran'));
         // return $pdf->download('penawaran_pdf.pdf');
@@ -77,15 +79,13 @@ class PenawaranController extends Controller
     public function store(Request $request){
 
 
+
     $data=perusahaan::insertGetId([
         'nama_perusahaan' => $request->get('nama_perusahaan'),
         'jenis_perusahaan' => $request->get('jenis_perusahaan'),
         'kontak' => $request->get('kontak'),
         'user_id' => $request->get('user_id')
         // 'logo'=> $request->file->hashName()
-
-
-
 
 
     ]);
@@ -107,15 +107,39 @@ class PenawaranController extends Controller
 
     ])
 ]);
-// $data->save();
-// }
 
     return redirect('/penawaran/index')->with('status', 'Data Barang Berhasil Ditambahkan');
 
 
     }
 
+public function createPenawaran(){
 
+    $getData=Penawaran::with('perusahaan')->get();
+    return view('penawaran.tambah_penawaran',['penawarans'=>$getData]);
+}
+
+public function tambahPenawaran(request $request){
+
+    $request->validate([
+        'jenis_koneksi' => 'required',
+        'lokasi' => 'required',
+        'site_a' => 'required',
+        'site_b' => 'required',
+        'bw' => 'required',
+        'kontrak' => 'required',
+        'monthly_bw' => 'required',
+        'otc' => 'required',
+        'perusahaan_id' => 'required'
+
+
+    ]);
+
+    Penawaran::create($request->all());
+    return redirect(route('detail'))->with('status', 'Penawaran berhasil ditambahkan');
+
+
+}
 
 
     /**
@@ -193,4 +217,11 @@ $data = DB::table('penawarans')
     {
         //
     }
+
+    public function fab(Penawaran $penawaran){
+
+            // $penawaran= Penawaran::all();
+            return view('followup.fab',compact('penawaran'));
+    }
+
 }
