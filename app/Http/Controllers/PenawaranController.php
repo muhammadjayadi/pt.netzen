@@ -213,9 +213,11 @@ $data = DB::table('penawarans')
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Penawaran $id)
     {
-        //
+        $id->delete();
+
+        return redirect('penawaran.index')->with('success','penawaran deleted successfully');
     }
 
     public function fab(Penawaran $penawaran){

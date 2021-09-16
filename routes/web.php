@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Route::get('followup/detail', function () {
     return view('followup/detail');
@@ -24,8 +24,9 @@ Route::get('followup/detail', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
+Route::get('/user/{id}', 'HomeController@destroy');
+Route::get('/add/create', 'HomeController@create')->name('user.tambah');
+Route::POST('home','HomeController@store')->name('store')->middleware('auth');
 
 Route::get('penawaran/index','PenawaranController@index')->name('penawaran/index')->middleware('auth');
 Route::get('penawaran/create','PenawaranController@create')->middleware('auth');
@@ -36,6 +37,7 @@ Route::get('/cari','PenawaranController@search')->name('cari')->middleware('auth
 Route::get('/detail/{penawaran}','PenawaranController@show')->name('detail')->middleware('auth');
 Route::get('/penawaran/{penawaran}/edit', 'PenawaranController@edit')->middleware('auth');
 Route::patch('/penawaran/{penawaran}', 'PenawaranController@update')->middleware('auth');
+Route::get('/penawaran/{id}', 'PenawaranController@destroy');
 
 Route::get('penawaran/pdf/{penawaran}','PenawaranController@pdf')->name('penawaran/cetak_pdf')->middleware('auth');
 Route::get('penawaran/cetak_pdf/{penawaran}','PenawaranController@cetak_pdf')->name('penawaran/cetak_pdf')->middleware('auth');
@@ -80,3 +82,4 @@ Route::get('file/identitas/{id}', 'FileController@downloadIdentitas')->name('ide
 
 Route::get('identitas/{identitas}/create','IdentitasController@create')->name('identitas.create');
 Route::POST('identitas/create','IdentitasController@store')->name('identitas');
+

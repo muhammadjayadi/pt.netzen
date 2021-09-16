@@ -22,7 +22,7 @@
                         <div class="col-md-4">
                             <div class="p-3 shadow-sm d-flex justify-content-around align-items-center rounded" style="background: #C7F2FF">
                                 <div>
-                                    <h3 class="fs-2">{{ $penawarans }}</h3>
+                                    <h3 class="fs-2">{{ $penawarans->count() }}</h3>
                                     <p class="fs-5">Jumlah Penawaran</p>
                                 </div>
                                 <i
@@ -34,50 +34,58 @@
                     <div class="row my-5">
                         <div class="col-6">
 
-
-                            <a class="btn " style="background: #C7F2FF" type="button" href="{{route('register')}}">
+                            <a class="btn " style="background: #C7F2FF" type="button" href="{{route('user.tambah')}}">
                                 Tambah User
                                 <i class="fas fa-user-plus"></i>
                             </a>
-
-                         
-
+                            
                         </div>
                             <br><br>
 
-                                @if(session('status'))
-                                <div class="alert alert-success">
-                                    {{ session('status') }}
-                                </div>
-                                @endif
+                        @if(session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                        @endif
                             {{-- <hr> --}}
 
 
 
-                                <table class="table table-bordered mt-3">
-                                    <thead class="thead bg-light text-center">
-                                        <tr>
+                        <table class="table table-bordered mt-3">
+                            <thead class="thead bg-light text-center">
+                                <tr>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            @foreach ($users as $user)
+                            <tbody>
+                                <tr>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td style="text-align: center">{{ $user->no_hp1 }} / {{ $user->no_hp2 }}</td>
+                                    <td>
+                                        <form action="{{ $user->id }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            {{-- <button type="submit" class="btn">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button> --}}
+                                            <a href="user/{{$user->id}}" class="btn btn-small">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            @endforeach
+                        </table>
 
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Aksi</th>
-
-                                        </tr>
-                                    </thead>
-                                    @foreach ($users as $user)
-                                    <tbody>
-                                            <tr>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>aksi</td>
-                                            </tr>
-                                    </tbody>
-                                    @endforeach
-                                    </table>
-
-                            </div>
-                        </div>
                     </div>
+                </div>
+        </div>
     </div>
 @endsection
 

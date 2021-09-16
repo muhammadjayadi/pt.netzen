@@ -81,11 +81,7 @@
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 John Doe
                             </a> --}}
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle second-text fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fas fa-user me-2"></i>{{ Auth::user()->name }}
-                                </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <h5><i class="fas fa-user me-2"></i>{{ Auth::user()->name }}</h5>
                                 {{-- <li> <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a></li> --}}
                                 {{-- <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li><a class="dropdown-item" href="#">Logout</a></li> --}}
